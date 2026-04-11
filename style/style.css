@@ -1,5 +1,19 @@
+:root {
+  --main-font: sans-serif;
+  --text-size: 15px;
+
+  --bg-page: #BF897F;
+  --bg-main: #DAC2B2;
+  --bg-input: #DAC2B2;
+
+  --accent-brown: #595046;
+  --text-white: #DAC2B2;
+}
+
 body {
-  background-color: #BF897F;
+  background-color: var(--bg-page);
+  font-family: var(--main-font);
+  font-size: var(--text-size);
 }  
 
 .main {
@@ -11,20 +25,42 @@ body {
   margin: 50px auto;
   padding-top: 20px;
   padding-bottom: 20px;
-  background: #DAC2B2;
-
+  background: var(--bg-main);
 }
 
 .h1 {
   text-align: center;
-  color: #F7F2E0;
+  color: var(--text-white);
   font-size: 45px;
-  font-family: sans-serif;
+  font-family: var(--main-font);
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
+}
+
+input {
+  height: 25px;
+  width: 300px;
+  padding-left: 5px;
+  font-size: var(--text-size);
+  font-family: var(--main-font);
+  color: var(--bg-main);
+  background-color: var(--bg-input);
+}
+
+input::placeholder {
+  font-size: var(--text-size);
+  font-family: var(--main-font);
+}
+
+.addBtn {
+  padding: 5px;
+  font-size: 15px;
+  font-family: var(--main-font);
+  color: var(--text-white);
+  background-color: var(--accent-brown);
 }
 
 ul {
@@ -40,10 +76,10 @@ li {
   gap: 5px;
   max-width: 400px;
   white-space: normal;
-  font-size: 15px;
-  font-family: sans-serif;
+  font-size: var(--text-size);
+  font-family: var(--main-font);
   align-items: start;
-  color: #595046;
+  color: var(--accent-brown);
 }
 
 .span {
@@ -58,41 +94,18 @@ li {
   opacity: 0.5;
 }
 
-input {
-  height: 25px;
-  width: 300px;
-  padding-left: 5px;
-  font-size: 15px;
-  font-family: sans-serif;
-  color: #DAC2B2;
-  background-color: #F7F2E0;
-}
-
-input::placeholder {
-  font-size: 15px;
-  font-family: sans-serif;
-}
-
-.addBtn {
-  padding: 5px;
-  font-size: 15px;
-  font-family: sans-serif;
-  color: #F7F2E0;
-  background-color: #595046;
-}
-
 .remove-btn {
   padding-left: 3px;
   padding-right: 3px;
-  font-family: sans-serif;
-  color: #F7F2E0;
-  background-color: #595046;
+  font-family: var(--main-font);
+  color: var(--text-white);
+  background-color: var(--accent-brown);
 }
 
 .done-btn {
   padding-left: 3px;
   padding-right: 3px;
-  font-family: sans-serif;
-  color: #F7F2E0;
-  background-color: #595046;
+  font-family: var(--main-font);
+  color: var(--text-white);
+  background-color: var(--accent-brown);
 }
