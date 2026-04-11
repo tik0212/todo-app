@@ -5,17 +5,17 @@ const ul = document.getElementById("tasklist")
 function addTask() {
   if (input.value.trim() === "") return;
 
-  let li = document.createElement("li");
+  const li = document.createElement("li");
 
-  let span = document.createElement("span");
+  const span = document.createElement("span");
   span.textContent = input.value;
   span.classList.add("span")
 
-  let remove = document.createElement("button");
+  const remove = document.createElement("button");
   remove.textContent = "×";
   remove.classList.add("remove-btn")
 
-  let done = document.createElement("button");
+  const done = document.createElement("button");
   done.textContent = "done";
   done.classList.add("done-btn")
 
