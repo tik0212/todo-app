@@ -16,7 +16,7 @@ body {
   background-color: var(--bg-page);
   font-family: var(--main-font);
   font-size: var(--text-size);
-}  
+}
 
 .main {
   display: flex;
@@ -118,4 +118,24 @@ li {
   font-family: var(--main-font);
   color: var(--text-white);
   background-color: var(--accent-brown);
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 90%;
+    margin: 30px auto;
+  }
+
+  .h1 {
+    font-size: 50px;
+  }
+
+  input {
+    width: 70%;
+  }
+
+  li {
+    max-width: 90%;
+  }
+
 }
