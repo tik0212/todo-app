@@ -2,7 +2,7 @@ const button = document.getElementById("addBtn");
 const input = document.getElementById("taskInput");
 const ul = document.getElementById("tasklist");
 
-function createTaskListElement(text, isDone = false) {
+function createTask(text, isDone = false) {
   const li = document.createElement("li");
 
   const span = document.createElement("span");
@@ -27,8 +27,12 @@ function createTaskListElement(text, isDone = false) {
 
   done.addEventListener("click", function () {
     span.classList.toggle("done");
-    span.classList.contains("done") ? ul.append(li) : ul.prepend(li);
-    saveTasks()
+    if (span.classList.contains("done")) {
+      ul.append(li);
+    } else {
+      ul.prepend(li);
+    }
+    saveTasks();
   });
 
   return li;
@@ -37,7 +41,7 @@ function createTaskListElement(text, isDone = false) {
 function addTask() {
   if (input.value.trim() === "") return;
 
-  const li = createTaskListElement(input.value);
+  const li = createTask(input.value);
   ul.append(li);
 
   input.value = "";
@@ -47,7 +51,7 @@ function addTask() {
 function saveTasks() {
   const tasks = [];
 
-  document.querySelectorAll("#tasklist li").forEach((li) => {
+  ul.querySelectorAll("li").forEach((li) => {
     tasks.push({
       text: li.querySelector(".span").textContent,
       isDone: li.querySelector(".span").classList.contains("done"),
@@ -62,7 +66,7 @@ function loadTasks() {
   if (saved) {
     const tasks = JSON.parse(saved);
     tasks.forEach((task) => {
-      const li = createTaskListElement(task.text, task.isDone);
+      const li = createTask(task.text, task.isDone);
       ul.append(li);
     });
   }

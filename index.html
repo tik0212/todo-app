@@ -1,28 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do App</title>
-  <link rel="stylesheet" href="style/reset.css">
-  <link rel="stylesheet" href="style/style.css">
-  <script src="script.js" defer></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="main">
+      <h1 class="h1">To-Do App</h1>
 
-</head>
-<body>
-  <div class="main">
-    <h1 class="h1">To-Do App</h1>
+      <div class="wrapper">
+        <input type="text" id="taskInput" placeholder="Enter a task" />
+        <button type="button" id="addBtn" class="addBtn">Add</button>
+      </div>
 
-    <div class="wrapper">
-      <input type="text" id="taskInput" placeholder="Enter a task">
-      <button type="button" id="addBtn" class="addBtn">Add</button>
+      <ul id="tasklist"></ul>
     </div>
-
-    <ul id="tasklist"></ul>
-
-  </div>
-
-  </div>
-</body>
+  </body>
 </html>
