@@ -76,6 +76,16 @@ function loadTasks() {
   }
 }
 
+function setActiveButton(button) {
+  const buttons = document.querySelectorAll(".filter-buttons button");
+
+  buttons.forEach((btn) => {
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+};
+
 loadTasks();
 
 addBtn.addEventListener("click", addTask);
@@ -89,6 +99,7 @@ allBtn.addEventListener("click", function() {
     tasks.forEach((li) => {
       li.style.display = "flex";
     });
+    setActiveButton(allBtn);
 });
 
 activeBtn.addEventListener("click", function() {
@@ -103,6 +114,7 @@ activeBtn.addEventListener("click", function() {
       li.style.display = "flex";
     }
   });
+  setActiveButton(activeBtn);
 });
 
 completedBtn.addEventListener("click", function() {
@@ -117,4 +129,5 @@ completedBtn.addEventListener("click", function() {
       li.style.display = "none";
     }
   });
+  setActiveButton(completedBtn);
 });

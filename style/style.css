@@ -83,6 +83,11 @@ input::placeholder {
   background-color: var(--accent-brown);
 }
 
+.filter-buttons button.active {
+  color: var(--bg-main);
+  background-color: var(--bg-input);
+}
+
 ul {
   display: flex;
   flex-direction: column;
