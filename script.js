@@ -1,6 +1,10 @@
-const button = document.getElementById("addBtn");
+const addBtn = document.getElementById("addBtn");
 const input = document.getElementById("taskInput");
 const ul = document.getElementById("tasklist");
+
+const allBtn = document.getElementById("allBtn");
+const activeBtn = document.getElementById("activeBtn");
+const completedBtn = document.getElementById("completedBtn");
 
 function createTask(text, isDone = false) {
   const li = document.createElement("li");
@@ -74,7 +78,43 @@ function loadTasks() {
 
 loadTasks();
 
-button.addEventListener("click", addTask);
+addBtn.addEventListener("click", addTask);
 input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") addTask();
+});
+
+allBtn.addEventListener("click", function() {
+    const tasks = ul.querySelectorAll("li");
+
+    tasks.forEach((li) => {
+      li.style.display = "flex";
+    });
+});
+
+activeBtn.addEventListener("click", function() {
+  const tasks = ul.querySelectorAll("li");
+
+  tasks.forEach((li) => {
+    const isDone = li.querySelector("span").classList.contains("done");
+
+    if (isDone) {
+      li.style.display = "none";
+    } else {
+      li.style.display = "flex";
+    }
+  });
+});
+
+completedBtn.addEventListener("click", function() {
+  const tasks = ul.querySelectorAll("li");
+
+  tasks.forEach((li) => {
+    const isDone = li.querySelector("span").classList.contains("done");
+
+    if (isDone) {
+      li.style.display = "flex";
+    } else {
+      li.style.display = "none";
+    }
+  });
 });
