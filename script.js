@@ -9,10 +9,10 @@ const completedBtn = document.getElementById("completedBtn");
 function createTask(text, isDone = false) {
   const li = document.createElement("li");
 
-  const span = document.createElement("span");
-  span.textContent = text;
-  span.classList.add("span");
-  if (isDone) span.classList.add("done");
+  const taskText = document.createElement("span");
+  taskText.textContent = text;
+  taskText.classList.add("task-text");
+  if (isDone) taskText.classList.add("done");
 
   const remove = document.createElement("button");
   remove.textContent = "×";
@@ -22,7 +22,7 @@ function createTask(text, isDone = false) {
   done.textContent = "done";
   done.classList.add("done-btn");
 
-  li.append(span, remove, done);
+  li.append(taskText, remove, done);
 
   remove.addEventListener("click", function () {
     li.remove();
@@ -30,8 +30,8 @@ function createTask(text, isDone = false) {
   });
 
   done.addEventListener("click", function () {
-    span.classList.toggle("done");
-    if (span.classList.contains("done")) {
+    taskText.classList.toggle("done");
+    if (taskText.classList.contains("done")) {
       ul.append(li);
     } else {
       ul.prepend(li);
@@ -57,8 +57,8 @@ function saveTasks() {
 
   ul.querySelectorAll("li").forEach((li) => {
     tasks.push({
-      text: li.querySelector(".span").textContent,
-      isDone: li.querySelector(".span").classList.contains("done"),
+      text: li.querySelector(".task-text").textContent,
+      isDone: li.querySelector(".task-text").classList.contains("done"),
     });
   });
   localStorage.setItem("myTasks", JSON.stringify(tasks));
@@ -84,7 +84,7 @@ function setActiveButton(button) {
   });
 
   button.classList.add("active");
-};
+}
 
 loadTasks();
 
@@ -93,20 +93,20 @@ input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") addTask();
 });
 
-allBtn.addEventListener("click", function() {
-    const tasks = ul.querySelectorAll("li");
-
-    tasks.forEach((li) => {
-      li.style.display = "flex";
-    });
-    setActiveButton(allBtn);
-});
-
-activeBtn.addEventListener("click", function() {
+allBtn.addEventListener("click", function () {
   const tasks = ul.querySelectorAll("li");
 
   tasks.forEach((li) => {
-    const isDone = li.querySelector("span").classList.contains("done");
+    li.style.display = "flex";
+  });
+  setActiveButton(allBtn);
+});
+
+activeBtn.addEventListener("click", function () {
+  const tasks = ul.querySelectorAll("li");
+
+  tasks.forEach((li) => {
+    const isDone = li.querySelector(".task-text").classList.contains("done");
 
     if (isDone) {
       li.style.display = "none";
@@ -117,11 +117,11 @@ activeBtn.addEventListener("click", function() {
   setActiveButton(activeBtn);
 });
 
-completedBtn.addEventListener("click", function() {
+completedBtn.addEventListener("click", function () {
   const tasks = ul.querySelectorAll("li");
 
   tasks.forEach((li) => {
-    const isDone = li.querySelector("span").classList.contains("done");
+    const isDone = li.querySelector(".task-text").classList.contains("done");
 
     if (isDone) {
       li.style.display = "flex";
@@ -129,5 +129,4 @@ completedBtn.addEventListener("click", function() {
       li.style.display = "none";
     }
   });
-  setActiveButton(completedBtn);
 });
