@@ -60,12 +60,26 @@ input::placeholder {
   font-family: var(--main-font);
 }
 
-.addBtn {
+.add-btn {
   padding: 5px;
   border-radius: 0 5px 5px 0;
   font-size: var(--text-size);
   font-family: var(--main-font);
   color: var(--text-white);
+  background-color: var(--accent-brown);
+}
+
+.filter-buttons {
+  display: flex;
+  width: 99%;
+  margin: 0 auto;
+}
+
+.filter-buttons button {
+  flex: 1;
+  font-family: var(--main-font);
+  font-size: 15px;
+  color: var(--bg-main);
   background-color: var(--accent-brown);
 }
 
