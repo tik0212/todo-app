@@ -67,6 +67,12 @@ input::placeholder {
   font-family: var(--main-font);
   color: var(--text-white);
   background-color: var(--accent-brown);
+  transition: 0.2s;
+}
+
+.add-btn:hover {
+  color: var(--bg-main);
+  background-color: var(--bg-input);
 }
 
 .filter-buttons {
@@ -81,6 +87,12 @@ input::placeholder {
   font-size: 15px;
   color: var(--bg-main);
   background-color: var(--accent-brown);
+  transition: 0.2s;
+}
+
+.filter-buttons button:hover {
+  color: var(--bg-main);
+  background-color: var(--bg-input);
 }
 
 .filter-buttons button.active {
@@ -114,6 +126,15 @@ li {
   overflow-wrap: break-word;
 }
 
+li button {
+  transition: 0.2s;
+}
+
+li button:hover {
+  color: var(--bg-main);
+  background-color: var(--text-white);
+}
+
 .done {
   text-decoration: line-through;
   opacity: 0.5;
@@ -126,7 +147,7 @@ li {
   font-size: var(--text-size);
   font-family: var(--main-font);
   color: var(--text-white);
-  background-color: var(--accent-brown);
+  background-color: var(--bg-page);
 }
 
 .done-btn {
@@ -136,7 +157,7 @@ li {
   font-size: var(--text-size);
   font-family: var(--main-font);
   color: var(--text-white);
-  background-color: var(--accent-brown);
+  background-color: var(--bg-page);
 }
 
 @media (max-width: 768px) {
