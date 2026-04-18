@@ -129,4 +129,5 @@ completedBtn.addEventListener("click", function () {
       li.style.display = "none";
     }
   });
+  setActiveButton(completedBtn);
 });
