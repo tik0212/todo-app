@@ -70,11 +70,6 @@ input::placeholder {
   transition: 0.2s;
 }
 
-.add-btn:hover {
-  color: var(--bg-main);
-  background-color: var(--bg-input);
-}
-
 .filter-buttons {
   display: flex;
   width: 99%;
@@ -88,16 +83,6 @@ input::placeholder {
   color: var(--bg-main);
   background-color: var(--accent-brown);
   transition: 0.2s;
-}
-
-.filter-buttons button:hover {
-  color: var(--bg-main);
-  background-color: var(--bg-input);
-}
-
-.filter-buttons button.active {
-  color: var(--bg-main);
-  background-color: var(--bg-input);
 }
 
 ul {
@@ -130,11 +115,6 @@ li button {
   transition: 0.2s;
 }
 
-li button:hover {
-  color: var(--bg-main);
-  background-color: var(--text-white);
-}
-
 .done {
   text-decoration: line-through;
   opacity: 0.5;
@@ -158,6 +138,23 @@ li button:hover {
   font-family: var(--main-font);
   color: var(--text-white);
   background-color: var(--bg-page);
+}
+
+@media (hover: hover) {
+  .add-btn:hover {
+    color: var(--bg-main);
+    background-color: var(--bg-input);
+  }
+
+  .filter-buttons button:hover {
+    color: var(--bg-main);
+    background-color: var(--bg-input);
+  }
+
+  li button:hover {
+  color: var(--bg-main);
+  background-color: var(--text-white);
+}
 }
 
 @media (max-width: 768px) {
