@@ -30,13 +30,19 @@ function createTask(text, isDone = false) {
   });
 
   done.addEventListener("click", function () {
-    taskText.classList.toggle("done");
-    if (taskText.classList.contains("done")) {
+    const currentText = li.querySelector(".task-text");
+    currentText.classList.toggle("done");
+
+    if (currentText.classList.contains("done")) {
       ul.append(li);
     } else {
       ul.prepend(li);
     }
     saveTasks();
+  });
+
+  taskText.addEventListener("dblclick", function () {
+    editTask(li);
   });
 
   return li;
@@ -84,6 +90,39 @@ function setActiveButton(button) {
   });
 
   button.classList.add("active");
+}
+
+function editTask(li) {
+  const taskText = li.querySelector(".task-text");
+  const currentText = taskText.textContent;
+  const wasDone = taskText.classList.contains("done");
+
+  const input = document.createElement("input");
+  input.value = currentText;
+
+  taskText.replaceWith(input);
+  input.focus();
+
+  input.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      input.blur();
+    }
+  });
+
+  input.addEventListener("blur", function () {
+    const taskText = document.createElement("span");
+    taskText.classList.add("task-text");
+    taskText.textContent = input.value;
+    if (wasDone) taskText.classList.add("done");
+
+    input.replaceWith(taskText);
+
+    taskText.addEventListener("dblclick", function () {
+      editTask(li);
+    });
+
+    saveTasks();
+  });
 }
 
 loadTasks();
