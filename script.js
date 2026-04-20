@@ -97,25 +97,26 @@ function editTask(li) {
   const currentText = taskText.textContent;
   const wasDone = taskText.classList.contains("done");
 
-  const input = document.createElement("input");
-  input.value = currentText;
+  const editInput = document.createElement("input");
+  editInput.classList.add("edit-input");
+  editInput.value = currentText;
 
-  taskText.replaceWith(input);
-  input.focus();
+  taskText.replaceWith(editInput);
+  editInput.focus();
 
-  input.addEventListener("keydown", function (event) {
+  editInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-      input.blur();
+      editInput.blur();
     }
   });
 
-  input.addEventListener("blur", function () {
+  editInput.addEventListener("blur", function () {
     const taskText = document.createElement("span");
     taskText.classList.add("task-text");
-    taskText.textContent = input.value;
+    taskText.textContent = editInput.value;
     if (wasDone) taskText.classList.add("done");
 
-    input.replaceWith(taskText);
+    editInput.replaceWith(taskText);
 
     taskText.addEventListener("dblclick", function () {
       editTask(li);

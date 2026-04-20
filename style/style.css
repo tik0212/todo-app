@@ -44,7 +44,7 @@ body {
   justify-content: center;
 }
 
-input {
+.task-input {
   height: 32px;
   width: 300px;
   padding-left: 5px;
@@ -61,6 +61,7 @@ input::placeholder {
 }
 
 .add-btn {
+  height: 32px;
   padding: 5px;
   border-radius: 0 5px 5px 0;
   font-size: var(--text-size);
@@ -134,14 +135,24 @@ li {
   background-color: var(--bg-page);
 }
 
-button.add-btn:active, 
-button.remove-btn:active, 
+button.add-btn:active,
+button.remove-btn:active,
 button.done-btn:active {
   background-color: var(--bg-input);
   color: var(--accent-brown);
-  transition: 0.01s; 
+  transition: 0.01s;
 }
 
+.edit-input {
+  /* height: 25px; */
+  width: 90%;
+  padding-left: 5px;
+  border-radius: 2px 0 0 2px;
+  font-size: var(--text-size);
+  font-family: var(--main-font);
+  color: var(--bg-main);
+  background-color: var(--bg-input);
+}
 
 @media (hover: hover) {
   .add-btn:hover {
