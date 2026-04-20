@@ -113,7 +113,8 @@ function editTask(li) {
   editInput.addEventListener("blur", function () {
     const taskText = document.createElement("span");
     taskText.classList.add("task-text");
-    taskText.textContent = editInput.value;
+    taskText.textContent = editInput.value.trim() === "" ? currentText : editInput.value;
+
     if (wasDone) taskText.classList.add("done");
 
     editInput.replaceWith(taskText);
