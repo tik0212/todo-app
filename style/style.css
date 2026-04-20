@@ -67,7 +67,6 @@ input::placeholder {
   font-family: var(--main-font);
   color: var(--text-white);
   background-color: var(--accent-brown);
-  transition: 0.2s;
 }
 
 .filter-buttons {
@@ -82,7 +81,6 @@ input::placeholder {
   font-size: 15px;
   color: var(--bg-main);
   background-color: var(--accent-brown);
-  transition: 0.2s;
 }
 
 ul {
@@ -111,10 +109,6 @@ li {
   overflow-wrap: break-word;
 }
 
-li button {
-  transition: 0.2s;
-}
-
 .done {
   text-decoration: line-through;
   opacity: 0.5;
@@ -140,6 +134,15 @@ li button {
   background-color: var(--bg-page);
 }
 
+button.add-btn:active, 
+button.remove-btn:active, 
+button.done-btn:active {
+  background-color: var(--bg-input);
+  color: var(--accent-brown);
+  transition: 0.01s; 
+}
+
+
 @media (hover: hover) {
   .add-btn:hover {
     color: var(--bg-main);
@@ -152,9 +155,9 @@ li button {
   }
 
   li button:hover {
-  color: var(--bg-main);
-  background-color: var(--text-white);
-}
+    color: var(--bg-main);
+    background-color: var(--bg-input);
+  }
 }
 
 @media (max-width: 768px) {
