@@ -98,15 +98,16 @@ body {
   flex: 1;
   font-family: var(--main-font);
   font-size: 15px;
-  color: var(--bg-main);
-  background: linear-gradient(180deg, #746a60 0%, var(--accent-brown) 100%);
+  color: var(--text-white);
+  background-color: var(--accent-brown);
+  opacity: 0.6;
 }
 
 .filter-buttons button.active {
-  background: var(--bg-main) !important;
-  color: var(--bg-input);
+  background: #ded4d7 !important;
+  color: #FFF;
   filter: brightness(1);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 ul {
@@ -165,7 +166,7 @@ li {
 button.add-btn:active,
 button.remove-btn:active,
 button.done-btn:active {
-  filter: brightness(0.9); 
+  filter: brightness(0.9);
   color: var(--accent-brown);
   transition: 0.01s;
 }
@@ -188,8 +189,10 @@ button.done-btn:active {
   }
 
   .filter-buttons button:hover {
-    color: var(--bg-main);
-    background-color: var(--bg-input);
+    background: var(--bg-main) !important;
+    color: var(--bg-input);
+    filter: brightness(1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   li button:hover {
